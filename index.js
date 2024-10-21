@@ -1,16 +1,24 @@
-// add function that ends the game if the user is tired of playing after 10 tries
-// using a "do while" loop
-// this is to avoid the use of recursive functions
+// code rework
+// add UI to code
+// Start button shows up
+// Intro comes up -> h1 (Hi, what's your name?)
+// input to take users input 
+// rework gameStart() and playGame() functions
+
+let results = document.querySelector("game_results")
 
 let gameOver = false;
 
 function gameStart(){
-    const startGame = prompt("Would you like to play Rock, Paper, Scissors? ");
+    // this prompt wouldn't be necessary anymore cause it the button is enough question
+    const startGame = prompt("Would you like to play Rock, Paper, Scissors? "); 
     
+    // This would be reworked and linked to the start_button's event listener
     if(startGame == "Yes"){
         return playGame();
     } else{
         console.log("Your wishes are my command.");
+        return endGame();
     }
 }
 
@@ -21,7 +29,10 @@ function getComputerChoice(){
 
 function playGame(){
     let tries = 0;
+    // This would come up after the start_game button is clicked and the input is true
     const userName = prompt("What's your name? ");
+    // A welcome message including the user's name shows up after the user inputs her name
+    // Include a "3,2,1" countdown
     do {
         const userChoice = prompt("Choose your weapon: Rock || Paper || Scissors -> ")
         const computerChoice = getComputerChoice();
@@ -55,7 +66,9 @@ function playGame(){
                 console.log(`Computer's Score: ${computerScore}`);
                 console.log(`${userName}'s Score: ${userScore}`);
                 console.log("Computer wins the game!");
-            }  
+            }  else{
+                console.log("Game Over.")
+            }
         }
     } while (true);
 }

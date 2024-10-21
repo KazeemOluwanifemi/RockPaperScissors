@@ -1,0 +1,16 @@
+*{
+    font-family: "Outfit";
+    background-color: #F1FAEE;
+    color: #1D3557;
+    margin: 0px;
+    text-align: center;
+  }
+  
+  main h1{
+    margin: 20px;
+  }
+  
+  .name_container{
+    display: "flex";
+    justify-content: center;
+  }
