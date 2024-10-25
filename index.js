@@ -5,12 +5,12 @@
 // input to take users input 
 // rework gameStart() and playGame() functions
 
-let results = document.querySelector("game_results")
+// let results = document.querySelector("game_results")
 
 let gameOver = false;
 
 function gameStart(){
-    // this prompt wouldn't be necessary anymore cause it the button is enough question
+    // this prompt wouldn't be necessary anymore cause the button is enough question
     const startGame = prompt("Would you like to play Rock, Paper, Scissors? "); 
     
     // This would be reworked and linked to the start_button's event listener
@@ -29,10 +29,6 @@ function getComputerChoice(){
 
 function playGame(){
     let tries = 0;
-    // This would come up after the start_game button is clicked and the input is true
-    const userName = prompt("What's your name? ");
-    // A welcome message including the user's name shows up after the user inputs her name
-    // Include a "3,2,1" countdown
     do {
         const userChoice = prompt("Choose your weapon: Rock || Paper || Scissors -> ")
         const computerChoice = getComputerChoice();

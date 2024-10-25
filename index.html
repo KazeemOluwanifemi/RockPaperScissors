@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
+  <title>Rock || Paper || Scissors</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <main>
@@ -12,9 +13,23 @@
       <h1>Rock || Paper || Scissors</h1>
       <div class = "name_container">
         <label>Hi, what's your name?</label>
-        <input class = "user_name">
+        <input type = "text" class = "user_name" required>
+        <button class = "get_user_name">Start Game</button>
+        <span class = "encouragement"></span>
+      </div>
+    </div>
+    <div class="main_game">
+      <div class="rps-btns">
+        <button id="rock-btn" class="user_weapon">ROCK</button>
+        <button id="paper-btn" class="user_weapon">PAPER</button>
+        <button id="scissors-btn" class="user_weapon">SCISSORS</button>
+      </div>
+
+      <div class="game_outcome">
+        <span class="outcome"></span>
       </div>
     </div>
   </main>
+  <script src="/index-reworked.js"></script>
 </body>
 </html>
