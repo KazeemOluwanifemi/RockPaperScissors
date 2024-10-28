@@ -4,6 +4,7 @@ let start_btn = document.querySelector(".get_user_name");
 let rps_btns = document.querySelector(".rps-btns");
 let outcome = document.querySelector(".outcome");
 let result = document.querySelector(".result");
+let final_result = document.querySelector(".final_outcome");
 
 user_name.focus();
 
@@ -15,8 +16,8 @@ function displayWeapons(){
   let main_content = document.querySelector(".main_game");
 
   if (main_content.style.display == "none" || main_content.style.display == ""){
-    main_content.style.display = "flex";
-  } else if(main_content.style.display == "flex") {
+    main_content.style.display = "block";
+  } else if(main_content.style.display == "block") {
     main_content.style.display = "none";
   };
 }
@@ -32,8 +33,8 @@ function getComputerChoice(){
 const gameOutcomes = {
     Rock: {
       Rock: "It's a tie!",
-      Paper: "You win!",
-      Scissors: "You lose."
+      Paper: "You lose.",
+      Scissors: "You win!."
     },
     Paper: {
       Rock: "You win!",
@@ -49,11 +50,13 @@ const gameOutcomes = {
 
 let userScore = 0;
 let computerScore = 0;
+let tries = 0;
 
 let rock_btn = document.querySelector("#rock-btn");
 rock_btn.addEventListener("click", function() {
     let user_choice = "Rock";
     let computer_choice = getComputerChoice();
+    tries++;
 
     // This line of code gives an output based on subbing the user's choice and computer's random choice and giving a corresponding string
 
@@ -70,24 +73,48 @@ rock_btn.addEventListener("click", function() {
         result.textContent = `Computer chose: ${computer_choice}`;
         outcome.textContent =  `It's a tie, try again!`;
     }
+
+    if(userScore >=5 || computerScore >=5 || tries >=10){
+        if (userScore >= 5) {
+            final_result.textContent = `Computer's Score: ${computerScore} \n Your Score: ${userScore} \n Congratulations!! You win the game!`;
+        } else if (computerScore >= 5) {
+            final_result.textContent = `Computer's Score: ${computerScore} \n Your Score: ${userScore} \n Aww, you lost.`;
+        }  else{
+            final_result.textContent = `Game Over.`
+        }
+    }
 });
 
 let paper_btn = document.querySelector("#paper-btn");
 paper_btn.addEventListener("click", function(){
     let user_choice = "Paper";
     let computer_choice = getComputerChoice();
+    tries++;
 
     // This line of code gives an output based on subbing the user's choice and computer's random choice and giving a corresponding string
 
     const roundWinner = gameOutcomes[user_choice][computer_choice];
     if (roundWinner == "You win!"){
         userScore++
-        console.log("You win!");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `You win!!`;
     } else if(roundWinner == "You lose."){
         computerScore++
-        console.log("You lose.");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `You lose.`;
     } else{
-        console.log("it's a tie!");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `It's a tie, try again!`;
+    }
+
+    if(userScore >=5 || computerScore >=5 || tries >=10){
+        if (userScore >= 5) {
+            final_result.textContent = `Computer's Score: ${computerScore} \n Your Score: ${userScore} \n Congratulations!! You win the game!`;
+        } else if (computerScore >= 5) {
+            final_result.textContent = `Computer's Score: ${computerScore} \n Your Score: ${userScore} \n Aww, you lost.`;
+        }  else{
+            final_result.textContent = `Game Over.`
+        }
     }
 })
 
@@ -96,18 +123,32 @@ let scissors_btn = document.querySelector("#scissors-btn");
 scissors_btn.addEventListener("click", function(){
     let user_choice = "Scissors";
     let computer_choice = getComputerChoice();
+    tries++;
 
     // This line of code gives an output based on subbing the user's choice and computer's random choice and giving a corresponding string
 
     const roundWinner = gameOutcomes[user_choice][computer_choice];
     if (roundWinner == "You win!"){
         userScore++
-        console.log("You win!");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `You win!!`;
     } else if(roundWinner == "You lose."){
         computerScore++
-        console.log("You lose.");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `You lose.`;
     } else{
-        console.log("it's a tie!");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `It's a tie, try again!`;
+    }
+
+    if(userScore >=5 || computerScore >=5 || tries >=10){
+        if (userScore >= 5) {
+            final_result.textContent = `Computer's Score: ${computerScore} \n Your Score: ${userScore} \n Congratulations!! You win the game!`;
+        } else if (computerScore >= 5) {
+            final_result.textContent = `Computer's Score: ${computerScore} \n Your Score: ${userScore} \n Aww, you lost.`;
+        }  else{
+            final_result.textContent = `Game Over.`
+        }
     }
 })
 
