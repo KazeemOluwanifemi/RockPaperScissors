@@ -2,6 +2,8 @@ let user_name = document.querySelector(".user_name");
 let user_question = document.querySelector(".encouragement");
 let start_btn = document.querySelector(".get_user_name");
 let rps_btns = document.querySelector(".rps-btns");
+let outcome = document.querySelector(".outcome");
+let result = document.querySelector(".result");
 
 user_name.focus();
 
@@ -58,12 +60,15 @@ rock_btn.addEventListener("click", function() {
     const roundWinner = gameOutcomes[user_choice][computer_choice];
     if (roundWinner == "You win!"){
         userScore++
-        console.log("You win!");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `You win!!`;
     } else if(roundWinner == "You lose."){
         computerScore++
-        console.log("You lose.");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `You lose.`;
     } else{
-        console.log("it's a tie!");
+        result.textContent = `Computer chose: ${computer_choice}`;
+        outcome.textContent =  `It's a tie, try again!`;
     }
 });
 
