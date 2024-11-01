@@ -78,6 +78,7 @@ main h1{
 .game_outcome{
   display: flex;
   flex-direction: column;
+  margin: 15px;
 }
 
 .outcome{
